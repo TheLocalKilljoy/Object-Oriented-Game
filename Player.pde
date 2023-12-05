@@ -33,12 +33,14 @@ class Player{
     playX = constrain(playX, 160, 240);
     playY = constrain(playY, 20, height-20);
     
+    playY = playY + 3; //sends player down if not moving due to wind
+    
     //moves the player
     if (up) {
       playY = playY - 4; 
     }
     if (down) {
-      playY = playY + 4;
+      playY = playY + 8;
     }
     if (left) {
       playX = playX - 4;
