@@ -2,6 +2,7 @@
 Goal goal;
 Player player;
 Barrier barrier;
+Wind wind[];
 
 //declaring the variables for moving the player
 boolean left = false;
@@ -11,6 +12,10 @@ boolean down = false;
 
 void setup(){
   size(400,400); //setting the screen size
+  
+  wind = new Wind[100]; //creating wind particles
+  for (int i=0; i<wind.length; i++){ //loops to spawn in all particles
+    wind[i] = new Wind();}
   
   //creating the needed objects
   goal = new Goal(); //creating the goal
@@ -31,6 +36,11 @@ void draw(){
   goal.drawGoal(); //draws the goal
   barrier.drawBarrier(); //draws the barriers
   useless(); //calls the function with no arguments or parameters
+  
+  for (int i=0; i<wind.length; i++){ //loop to ensure all fireflies keep respawning
+    wind[i].update();}
+  for (int i=0; i<wind.length; i++){ //loop to draw each firefly where it needs to be
+    wind[i].drawWind();}
 }
 
 //function to draw the background
@@ -67,6 +77,10 @@ void keyReleased() {
   } else if (key == 'd' || key == 'D') {
     right=false;
   }
+}
+
+//the needed function with no arguments or parameters
+void useless() {
 }
 
 //the needed function with no arguments or parameters
