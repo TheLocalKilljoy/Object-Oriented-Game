@@ -1,0 +1,11 @@
+class WinScreen{
+  
+  void drawWin(){
+    textAlign(CENTER);
+    textSize(200);
+    text("CONGRATION",width/2,height/2);
+    textSize(150);
+    text("YOU DONE IT",width/2,350);
+  }
+  
+}
