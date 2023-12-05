@@ -1,0 +1,13 @@
+class TitleScreen{
+  
+  void drawTitle(){
+    background(10,25,50);
+    textAlign(CENTER);
+    textSize(50);
+    text("THE IMPOSSIBLE", width/2,100);
+    textSize(100);
+    text("GAME",width/2,200);
+    text("press any button to begin",width/2,350);
+  }
+  
+}
