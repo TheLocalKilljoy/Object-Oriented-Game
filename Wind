@@ -5,7 +5,7 @@ class Wind{
   
   Wind(){
     wPos = new PVector(random(width), random(height)); //randomizes the starting position of wind particles
-    velocity = new PVector(0,10); //set velocity
+    velocity = new PVector(0,0.2); //set velocity
     }
   
   //respawns the wind so it doesn't stop
@@ -13,11 +13,11 @@ class Wind{
     wPos.add(velocity); //gives the velocity to respawned wind particles
     if (wPos.y > height+30){ 
       wPos = new PVector(random(width), -30);
-      velocity = new PVector(0,10);
+      velocity = new PVector(0,0.2);
     }
   }
  
-  //draws the fireflies on screen
+  //draws the wind
   void  drawWind(){
     stroke(220,220,255);
     strokeWeight(2);
