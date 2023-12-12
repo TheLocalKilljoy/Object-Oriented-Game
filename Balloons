@@ -1,0 +1,35 @@
+class Balloons{
+  
+  PVector bPos;
+  PVector bVelocity;
+  
+  float size;
+  
+  float balloonX;
+  float balloonY;
+  
+  Balloons(){
+    size = 20;
+    balloonX = random(width); 
+    balloonY = random(height);
+    
+    bPos = new PVector(random(width), random(height)); //randomizes the starting position
+    bVelocity = new PVector(random(-1,1),random(1,5)); //set velocity
+  }
+  
+  void update(){
+    bPos.add(bVelocity); //gives the velocity to respawned balloons
+    if (bPos.y > height+30){ 
+    bPos = new PVector(random(width), random(height)); //randomizes the starting position
+    bVelocity = new PVector(random(-1,1),random(1,5)); //set velocity
+    }
+  }
+  
+  void drawB(){
+    ellipseMode(CENTER);
+    noStroke();
+    fill(100,205,205);
+    ellipse(balloonX,balloonY,size,size);
+    triangle(balloonX-10,balloonY+3,balloonX+10,balloonY+3,balloonX,balloonY+20);
+  }
+}
