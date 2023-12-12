@@ -4,6 +4,9 @@ Player player;
 Barrier barrier;
 Wind wind[];
 
+enum Screen {START, GAME, END}
+Screen screen = Screen.START;
+
 //declaring the variables for moving the player
 boolean left = false;
 boolean right = false;
@@ -30,6 +33,10 @@ void draw(){
   //calling the function to draw the background
   drawBG();
   
+  switch(screen){
+  }
+  
+  
   //calling the functions within the objects
   player.drawPlayer(); //draws the player
   player.movePlayer(); //moves the player
@@ -37,10 +44,11 @@ void draw(){
   barrier.drawBarrier(); //draws the barriers
   useless(); //calls the function with no arguments or parameters
   
-  for (int i=0; i<wind.length; i++){ //loop to ensure all fireflies keep respawning
+  for (int i=0; i<wind.length; i++){ //loop to respawn wind
     wind[i].update();}
-  for (int i=0; i<wind.length; i++){ //loop to draw each firefly where it needs to be
+  for (int i=0; i<wind.length; i++){ //loop to draw the wind
     wind[i].drawWind();}
+   
 }
 
 //function to draw the background
@@ -77,10 +85,6 @@ void keyReleased() {
   } else if (key == 'd' || key == 'D') {
     right=false;
   }
-}
-
-//the needed function with no arguments or parameters
-void useless() {
 }
 
 //the needed function with no arguments or parameters
