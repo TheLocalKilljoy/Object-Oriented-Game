@@ -6,6 +6,8 @@ Wind wind[];
 TitleScreen title;
 WinScreen win;
 
+ArrayList<Balloons> balloons = new ArrayList<Balloons>();
+
 //creating the switch statement stuff
 enum Screen {START, GAME, END}
 Screen screen = Screen.START;
@@ -26,6 +28,9 @@ void setup(){
   wind = new Wind[100]; //creating wind particles
   for (int i=0; i<wind.length; i++){ //loops to spawn in all particles
     wind[i] = new Wind();}
+    
+  for (int i=0; i<50; i++){ //loops to spawn in all balloons
+    balloons.add(new Balloons());}
   
   //creating the needed objects
   goal = new Goal(); //creating the goal
@@ -55,17 +60,27 @@ void draw(){
     goal.drawGoal(); //draws the goal
     barrier.drawBarrier(); //draws the barriers
     
-    for (int i=0; i<wind.length; i++){ //loop to respawn wind
-      wind[i].update();}
     for (int i=0; i<wind.length; i++){ //loop to draw the wind
-      wind[i].drawWind();}
+      wind[i].drawWind();
+        for (int a=0; a<wind.length; a++){ //loop to respawn wind
+          wind[i].update();
+        }
+    }
+      
       
     game = true;
     
     break;
     
     case END:
+    background(10,25,50);
+    
+    for (Balloons b : balloons) {
+      b.drawB();
+      b.update();}
+    
     win.drawWin();
+      
     end = true;
     break;
   }
@@ -100,6 +115,10 @@ void keyPressed() {
   } 
   else if (key == 'd' || key == 'D') { //moves player right if d is pressed
     right=true;
+  }
+  else if (end == true){
+    screen = Screen.START;
+    end = false;
   }
 }
  
