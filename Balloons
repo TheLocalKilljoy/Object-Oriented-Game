@@ -1,31 +1,16 @@
-class Balloons{
+class Balloons{ //class creating balloons for end screen
   
-  PVector bPos;
-  PVector bVelocity;
-  
-  float size;
-  
+  float size; //variables for the size and location of the balloons
   float balloonX;
   float balloonY;
   
   Balloons(){
-    size = 20;
-    balloonX = random(width); 
+    size = 20; //sets balloon size
+    balloonX = random(width); //randomizes where the balloon is
     balloonY = random(height);
-    
-    bPos = new PVector(random(width), random(height)); //randomizes the starting position
-    bVelocity = new PVector(random(-1,1),random(1,5)); //set velocity
   }
   
-  void update(){
-    bPos.add(bVelocity); //gives the velocity to respawned balloons
-    if (bPos.y > height+30){ 
-    bPos = new PVector(random(width), random(height)); //randomizes the starting position
-    bVelocity = new PVector(random(-1,1),random(1,5)); //set velocity
-    }
-  }
-  
-  void drawB(){
+  void drawB(){ //draws the balloons
     ellipseMode(CENTER);
     noStroke();
     fill(100,205,205);
