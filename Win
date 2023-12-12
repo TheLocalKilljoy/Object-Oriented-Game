@@ -1,6 +1,6 @@
-class WinScreen{
+class WinScreen{ //creates the ending screen
   
-  void drawWin(){
+  void drawWin(){ //draws the win screen
     textAlign(CENTER);
     textSize(65);
     fill(150,255,255);
