@@ -1,6 +1,6 @@
-class TitleScreen{
+class TitleScreen{ //creates the starting screen
   
-  void drawTitle(){
+  void drawTitle(){ //draws the starting screen and words
     background(10,25,50);
     textAlign(CENTER);
     textSize(50);
@@ -11,5 +11,4 @@ class TitleScreen{
     textSize(25);
     text("press any button to begin",width/2,350);
   }
-  
 }
