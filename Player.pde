@@ -1,4 +1,4 @@
-class Player{
+class Player{ //creating the player avatar
   
   //declaring variables for the player
   float size; //players size
@@ -48,7 +48,7 @@ class Player{
     if (right) {
       playX = playX + 4;
     }
-    if (playY <= 80){
+    if (playY <= 80){ //changes to win screen if player reaches goal
       screen = Screen.END;
       game = false;
     }
