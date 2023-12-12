@@ -16,6 +16,10 @@ boolean right = false;
 boolean up = false;
 boolean down = false;
 
+boolean start;
+boolean game;
+boolean end;
+
 void setup(){
   size(400,400); //setting the screen size
   
@@ -41,6 +45,7 @@ void draw(){
   switch(screen){
     case START:
     title.drawTitle();
+    start = true;
     break;
     
     case GAME:
@@ -54,11 +59,14 @@ void draw(){
       wind[i].update();}
     for (int i=0; i<wind.length; i++){ //loop to draw the wind
       wind[i].drawWind();}
+      
+    game = true;
     
     break;
     
     case END:
     win.drawWin();
+    end = true;
     break;
   }
   
@@ -77,8 +85,11 @@ void drawBG(){
 
 //function to move to player
 void keyPressed() {
-  
-  if (key == 'w' || key == 'W') { //moves player up if w is pressed
+  if(start == true){
+    screen = Screen.GAME;
+    start = false;
+  }
+  else if (key == 'w' || key == 'W') { //moves player up if w is pressed
     up=true;
   } 
   else if (key == 'a' || key == 'A') { //moves player left if a is pressed
