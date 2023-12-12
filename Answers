@@ -1,0 +1,11 @@
+//idk where I'm supposed to answer the questions from the skills inventory so i'll put them here
+
+// 19.  For loops goes for a set difference, while loop goes until the while is proven false
+// 22.  Parameter is a variable like X, argument is the number that passes through the parameter
+// 25.  Class is a blueprint with variables, Object fills in the variables and makes the thing
+// 26.  Creates and initializes an object instance of a class
+// 27.  To keep things separate and readable
+// 31.  Arrays have a set size, arraylist can grow
+// 32.  To have less of something as time goes on
+// 37.  If you need both magnitude and direction
+// 1.  Takes a vector and keeps it in one direction, good to make something move only one way 
