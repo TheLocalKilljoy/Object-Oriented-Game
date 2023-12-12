@@ -3,7 +3,10 @@ Goal goal;
 Player player;
 Barrier barrier;
 Wind wind[];
+TitleScreen title;
+WinScreen win;
 
+//creating the switch statement stuff
 enum Screen {START, GAME, END}
 Screen screen = Screen.START;
 
@@ -24,6 +27,8 @@ void setup(){
   goal = new Goal(); //creating the goal
   player = new Player(); //creating the player
   barrier = new Barrier(); //creating the barriers
+  title = new TitleScreen();
+  win = new WinScreen();
   
   println("control with WASD"); //writing the controls for the player to use
 }
@@ -34,21 +39,30 @@ void draw(){
   drawBG();
   
   switch(screen){
+    case START:
+    title.drawTitle();
+    break;
+    
+    case GAME:
+    //calling the functions within the objects
+    player.drawPlayer(); //draws the player
+    player.movePlayer(); //moves the player
+    goal.drawGoal(); //draws the goal
+    barrier.drawBarrier(); //draws the barriers
+    
+    for (int i=0; i<wind.length; i++){ //loop to respawn wind
+      wind[i].update();}
+    for (int i=0; i<wind.length; i++){ //loop to draw the wind
+      wind[i].drawWind();}
+    
+    break;
+    
+    case END:
+    win.drawWin();
+    break;
   }
   
-  
-  //calling the functions within the objects
-  player.drawPlayer(); //draws the player
-  player.movePlayer(); //moves the player
-  goal.drawGoal(); //draws the goal
-  barrier.drawBarrier(); //draws the barriers
-  useless(); //calls the function with no arguments or parameters
-  
-  for (int i=0; i<wind.length; i++){ //loop to respawn wind
-    wind[i].update();}
-  for (int i=0; i<wind.length; i++){ //loop to draw the wind
-    wind[i].drawWind();}
-   
+  useless(); //calls the function with no arguments or parameters  
 }
 
 //function to draw the background
@@ -63,13 +77,17 @@ void drawBG(){
 
 //function to move to player
 void keyPressed() {
+  
   if (key == 'w' || key == 'W') { //moves player up if w is pressed
     up=true;
-  } else if (key == 'a' || key == 'A') { //moves player left if a is pressed
+  } 
+  else if (key == 'a' || key == 'A') { //moves player left if a is pressed
     left=true;
-  } else if (key == 's' || key == 'S') { //moves player down if s is pressed
+  } 
+  else if (key == 's' || key == 'S') { //moves player down if s is pressed
     down=true;
-  } else if (key == 'd' || key == 'D') { //moves player right if d is pressed
+  } 
+  else if (key == 'd' || key == 'D') { //moves player right if d is pressed
     right=true;
   }
 }
@@ -85,6 +103,10 @@ void keyReleased() {
   } else if (key == 'd' || key == 'D') {
     right=false;
   }
+}
+
+//the needed function with no arguments or parameters
+void useless() {
 }
 
 //the needed function with no arguments or parameters
