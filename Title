@@ -4,9 +4,11 @@ class TitleScreen{
     background(10,25,50);
     textAlign(CENTER);
     textSize(50);
+    fill(150,255,255);
     text("THE IMPOSSIBLE", width/2,100);
     textSize(100);
     text("GAME",width/2,200);
+    textSize(25);
     text("press any button to begin",width/2,350);
   }
   
