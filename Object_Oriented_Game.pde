@@ -6,9 +6,10 @@ Wind wind[];
 TitleScreen title;
 WinScreen win;
 
+//creating array list for the balloons
 ArrayList<Balloons> balloons = new ArrayList<Balloons>();
 
-//creating the switch statement stuff
+//creating the switch statement
 enum Screen {START, GAME, END}
 Screen screen = Screen.START;
 
@@ -18,6 +19,7 @@ boolean right = false;
 boolean up = false;
 boolean down = false;
 
+//creating variables for the switch statement
 boolean start;
 boolean game;
 boolean end;
@@ -47,14 +49,14 @@ void draw(){
   //calling the function to draw the background
   drawBG();
   
+  //switch statement to switch between game states
   switch(screen){
-    case START:
-    title.drawTitle();
+    case START: //case for the title screen
+    title.drawTitle(); //calls and draws the title screen
     start = true;
-    break;
+    break; 
     
-    case GAME:
-    //calling the functions within the objects
+    case GAME: //case for main game
     player.drawPlayer(); //draws the player
     player.movePlayer(); //moves the player
     goal.drawGoal(); //draws the goal
@@ -67,19 +69,16 @@ void draw(){
         }
     }
       
-      
-    game = true;
-    
+    game = true;//sets game as true
     break;
     
-    case END:
+    case END: //case for the win screen
     background(10,25,50);
     
-    for (Balloons b : balloons) {
-      b.drawB();
-      b.update();}
+    for (Balloons b : balloons) {//spawns in the balloons
+      b.drawB();}
     
-    win.drawWin();
+    win.drawWin(); //draws the win screen text
       
     end = true;
     break;
@@ -100,7 +99,7 @@ void drawBG(){
 
 //function to move to player
 void keyPressed() {
-  if(start == true){
+  if(start == true){ //changes from title to game when pressed
     screen = Screen.GAME;
     start = false;
   }
@@ -116,7 +115,7 @@ void keyPressed() {
   else if (key == 'd' || key == 'D') { //moves player right if d is pressed
     right=true;
   }
-  else if (end == true){
+  else if (end == true){ //changes from win to title when pressed
     screen = Screen.START;
     end = false;
   }
@@ -135,8 +134,10 @@ void keyReleased() {
   }
 }
 
-//the needed function with no arguments or parameters
-void useless() {
+void mousePressed(){ //despawns a balloon if pressed
+  if (end == true){
+    balloons.remove(1);
+  }
 }
 
 //the needed function with no arguments or parameters
