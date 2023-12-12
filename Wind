@@ -1,11 +1,14 @@
-class Wind{
+class Wind{ //creates wind particles
 
+  //PVectors to make the particles move
   PVector wPos; 
   PVector velocity;  
+  PVector w;
   
-  Wind(){
+  Wind(){ 
     wPos = new PVector(random(width), random(height)); //randomizes the starting position of wind particles
     velocity = new PVector(0,0.2); //set velocity
+    w = PVector.random2D();
     }
   
   //respawns the wind so it doesn't stop
