@@ -1,4 +1,4 @@
-class Barrier{
+class Barrier{ //creating barriers in the game
   
   //function to draw the barriers
   void drawBarrier(){
