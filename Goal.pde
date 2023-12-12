@@ -1,4 +1,4 @@
-class Goal{
+class Goal{ //creating a goal for the player to reach
   
   //variables determining the x and y of the goal
   int platX = width/2;
