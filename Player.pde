@@ -48,5 +48,9 @@ class Player{
     if (right) {
       playX = playX + 4;
     }
+    if (playY <= 80){
+      screen = Screen.END;
+      game = false;
+    }
   }
 }
